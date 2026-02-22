@@ -1,0 +1,76 @@
+---
+description: デザインメタデータのスキーマ。Statement Perfection Verificator の検証入力・出力構造
+alwaysApply: false
+---
+
+# デザイン検証データスキーマ
+
+Statement Perfection Verificator の Input/Output となるデザインメタデータの構造定義。
+[universal-guideline](https://github.com/tanaakk/universal-guideline) の `tanaakk-universal-schema.mdc` と `tanaakk-statement-perfection-verificator.mdc` と併用すること。
+
+## 1. エンティティ関係
+
+```mermaid
+erDiagram
+    DesignArtifact ||--o| DesignAuthKey : "design_uuid"
+    DesignArtifact ||--o{ VerificationResult : "design_uuid"
+    DesignArtifact {
+        uuid design_uuid PK
+        string source_tool_type
+        string source_format
+        string purpose
+        string tax_id
+        timestamp created_at
+        uuid created_by
+    }
+    DesignAuthKey {
+        uuid design_auth_key_uuid PK
+        uuid design_uuid FK
+        string conflict_zero_hash
+        timestamp issued_at
+    }
+    VerificationResult {
+        uuid verification_result_uuid PK
+        uuid design_uuid FK
+        int category_id
+        string status
+        string conflict_details
+        timestamp verified_at
+    }
+```
+
+## 2. デザインメタデータ DTO
+
+```typescript
+interface DesignMetadataDto {
+  shape?: string
+  material?: string
+  color_system_type?: string
+  color_code?: string
+  purpose?: string
+  tax_id?: string
+}
+```
+
+## 3. 検証結果 DTO
+
+```typescript
+interface VerificationResultDto {
+  verification_result_uuid: string
+  design_uuid: string
+  category_id: number
+  status: 'PASS' | 'FAIL' | 'PENDING'
+  conflict_details?: string
+  verified_at: string
+}
+```
+
+## 4. Design Auth Key 発行条件
+
+- 10カテゴリーすべてで `status === 'PASS'`
+- `conflict_zero_hash`: 全カテゴリーの検証結果から生成したハッシュ
+
+## 5. 禁止事項
+
+- `design_uuid` 以外の業務コードを PK/FK に使用しない
+- ツール固有の ID（Adobe の documentId 等）は属性として保持

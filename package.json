@@ -1,0 +1,17 @@
+{
+  "name": "law-of-scale-verificator",
+  "version": "1.1.1",
+  "description": "All assets (Architecture, 2D/3D, Products, Intellectual properties) must pass the LSV before global release.",
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tanaakk/law-of-scale-verificator.git"
+  },
+  "keywords": [
+    "law-of-scale",
+    "statement-perfection",
+    "design-verification",
+    "tanaakk",
+    "cursor-rules"
+  ]
+}
