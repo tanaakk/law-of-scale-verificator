@@ -6,9 +6,10 @@ globs: ["*.psd", "*.ai", "*.xd", "*.dwg", "*.dxf", "*.rvt", "*.ifc", "*.pdf"]
 
 # Law of Scale Statement Perfection Verificator
 
-デザイン（Adobe、Autodesk CAD 2D/3D、アニメーション、建築物等）をグローバルリリースする前に、人類の基底OS（三大勢力）との整合性を検証する規則。
+デザインモデル・商品モデル（Adobe、Autodesk CAD 2D/3D、アニメーション、建築物等）をグローバルリリースする前に、人類の基底OS（三大勢力）との整合性を検証する規則。PLOG (Product-Led Organic Growth™) の実現に寄与する。
 出典: [TANAAKK Statement Perfection Verificator](https://www.tanaakk.com/2026/02/21/verification/)
-[universal-guideline](https://github.com/tanaakk/universal-guideline) の `tanaakk-universal-schema.mdc` と併用すること。
+
+**law-of-scale-verificator は [universal-guideline](https://github.com/tanaakk/universal-guideline) を制約として機能する。**
 
 ## 1. 認証キーの階層
 
@@ -56,14 +57,3 @@ globs: ["*.psd", "*.ai", "*.xd", "*.dwg", "*.dxf", "*.rvt", "*.ifc", "*.pdf"]
 | アニメーション | 各種フレーム、動画 | 動き、時間軸、シーケンス |
 | 建築 BIM | IFC, RVT | ISO 19650, ISO 16739 準拠 |
 
-## 5. スキーマ準拠
-
-- **識別子**: `design_uuid` (UUID v4)。`tanaakk-universal-schema.mdc` 2. ID設計に準拠
-- **色彩**: `color_system_type` + `color_code`。`tanaakk-physical-branding-sku.mdc` を参照
-- **時刻**: UTC + ISO 8601。`tanaakk-universal-schema.mdc` 3. 時間と単位に準拠
-
-## 6. 禁止事項
-
-- デザイン固有の業務コード（SKU、品番、ファイル名等）を PK/FK に使用しない
-- ツール固有のフォーマットを直接 PK にしない（属性として扱う）
-- 色彩・言語を float や単一文字列で扱わない（規格に沿った構造で定義）

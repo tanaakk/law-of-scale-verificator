@@ -6,7 +6,8 @@ alwaysApply: false
 # デザイン検証データスキーマ
 
 Statement Perfection Verificator の Input/Output となるデザインメタデータの構造定義。
-[universal-guideline](https://github.com/tanaakk/universal-guideline) の `tanaakk-universal-schema.mdc` と `tanaakk-statement-perfection-verificator.mdc` と併用すること。
+
+**law-of-scale-verificator は [universal-guideline](https://github.com/tanaakk/universal-guideline) を制約として機能する。**
 
 ## 1. エンティティ関係
 
@@ -14,20 +15,27 @@ Statement Perfection Verificator の Input/Output となるデザインメタデ
 erDiagram
     DesignArtifact ||--o| DesignAuthKey : "design_uuid"
     DesignArtifact ||--o{ VerificationResult : "design_uuid"
+    DesignArtifact }o--|| DigitalProduct : "product_uuid"
     DesignArtifact {
         uuid design_uuid PK
+        uuid product_uuid FK "optional, tanaakk-physical-branding-sku"
         string source_tool_type
         string source_format
         string purpose
         string tax_id
-        timestamp created_at
+        string created_at "ISO 8601"
+        string updated_at "ISO 8601"
+        int version
         uuid created_by
     }
     DesignAuthKey {
         uuid design_auth_key_uuid PK
         uuid design_uuid FK
         string conflict_zero_hash
-        timestamp issued_at
+        string issued_at "ISO 8601"
+        string created_at "ISO 8601"
+        string updated_at "ISO 8601"
+        int version
     }
     VerificationResult {
         uuid verification_result_uuid PK
@@ -35,7 +43,13 @@ erDiagram
         int category_id
         string status
         string conflict_details
-        timestamp verified_at
+        string verified_at "ISO 8601"
+        string created_at "ISO 8601"
+        string updated_at "ISO 8601"
+        int version
+    }
+    DigitalProduct {
+        uuid product_uuid PK
     }
 ```
 
@@ -70,7 +84,9 @@ interface VerificationResultDto {
 - 10カテゴリーすべてで `status === 'PASS'`
 - `conflict_zero_hash`: 全カテゴリーの検証結果から生成したハッシュ
 
-## 5. 禁止事項
+## 5. 商品モデルとの関係 (PLOG)
 
-- `design_uuid` 以外の業務コードを PK/FK に使用しない
-- ツール固有の ID（Adobe の documentId 等）は属性として保持
+- `product_uuid`: オプション。`tanaakk-physical-branding-sku.mdc` の DigitalProduct に紐づく場合に設定
+- デザイン検証通過後、Design Auth Key が発行され、製造看板（Execution Trigger Key）に SKU/原価がデプロイされる
+- OMS/WMS/MES の商品フローは `product_uuid` で一貫して結合
+

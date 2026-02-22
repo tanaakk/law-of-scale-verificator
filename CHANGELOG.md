@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.2] - 2026-02-22
+
+### Changed
+
+- universal-guideline との整合性を強化
+- PLOG (Product-Led Organic Growth™) の目的を README・mdc に明記
+- design-verification-data: universal-schema 2.3 準拠（created_at, updated_at, version）、product_uuid で商品モデルと接続
+- HIERARCHY: データスキーマ準拠チェック表を追加
+
 ## [1.1.1] - 2026-02-22
 
 ### Added
