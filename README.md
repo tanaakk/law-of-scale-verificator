@@ -14,6 +14,12 @@ Law of Scale Verificator は、[TANAAKK Statement Perfection Verificator](https:
 - **Statement Perfection**: 人類史が積み上げた普遍的な「型（Archetype）」との整合性が証明された状態
 - **Design Auth Key**: デザイン認証キー。このキーが発行されて初めて、製造看板（Execution Trigger Key）に SKU/原価がデプロイされる
 
+## ドキュメント
+
+| ファイル | 内容 |
+|----------|------|
+| [01_IO_Specification.md](01_IO_Specification.md) | I/O Specification の定義と本リポジトリの想定 I/O |
+
 ## 適用対象
 
 | ツール/ドメイン | 出力形式 | レビュー対象 |
@@ -42,6 +48,21 @@ cp law-of-scale-verificator/*.mdc .cursor/rules/
 ### User Rules に貼る
 
 `user-rules-copy-paste.md` を Cursor Settings > Rules for AI にコピー＆ペースト。
+
+## 8 リポジトリ構造
+
+Universal Guideline を含む 8 つのリポジトリが一つの構造を持つ。本リポジトリ（law-of-scale-verificator）はその一部である。
+
+| リポジトリ | リンク |
+|-----------|--------|
+| universal-guideline | [github.com/tanaakk/universal-guideline](https://github.com/tanaakk/universal-guideline) |
+| holographic-sphere-topology | [github.com/tanaakk/holographic-sphere-topology](https://github.com/tanaakk/holographic-sphere-topology) |
+| GAAS-dissipative-constraints | [github.com/tanaakk/GAAS-dissipative-constraints](https://github.com/tanaakk/GAAS-dissipative-constraints) |
+| complex-physics-scale | [github.com/tanaakk/complex-physics-scale](https://github.com/tanaakk/complex-physics-scale) |
+| law-of-scale-verificator | [github.com/tanaakk/law-of-scale-verificator](https://github.com/tanaakk/law-of-scale-verificator) |
+| homotopical-coherence-engine | [github.com/tanaakk/homotopical-coherence-engine](https://github.com/tanaakk/homotopical-coherence-engine) |
+| intangibles-valuation-logic | [github.com/tanaakk/intangibles-valuation-logic](https://github.com/tanaakk/intangibles-valuation-logic) |
+| operating-leverage-identifier | [github.com/tanaakk/operating-leverage-identifier](https://github.com/tanaakk/operating-leverage-identifier) |
 
 ## バージョン
 
