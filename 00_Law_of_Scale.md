@@ -1,6 +1,8 @@
 # 00_Law_of_Scale — LSV 概要
 
-Law of Scale Verificator (LSV) は、[TANAAKK Statement Perfection Verificator](https://www.tanaakk.com/2026/02/21/verification/) の趣旨に基づくデザインレビュー規則。デザインを「出荷」する前に、人類の基底OS（三大勢力）との整合性を検証し、グローバルリリース可能な品質を保証する。
+Law of Scale Verificator (LSV) は、Statement Perfection Verificator の趣旨に基づくデザインレビュー規則。デザインを「出荷」する前に、人類の基底OS（三大勢力）との整合性を検証し、グローバルリリース可能な品質を保証する。
+
+**8 つのリポジトリが一つの広域系を形成している。** 本リポジトリ（law-of-scale-verificator）はその一部である。
 
 ---
 
