@@ -57,7 +57,7 @@
 
 | パターン | 用途 | 例 |
 |----------|------|-----|
-| `NN-<kebab-case>.md` | 番号付き補足 | `10-categories-matrix.md`, `verification-checklist.md` |
+| `NN-<kebab-case>.md` | 番号付き補足 | `10-categories-matrix.md`, `11-verification-checklist.md` |
 | `UPPER_SNAKE.md` | アーキテクチャ・ホワイトペーパー | `ARCHITECTURE.md`, `WHITEPAPER.md`, `META_FRAMEWORK.md` |
 
 ---
@@ -126,7 +126,7 @@ law-of-scale-verificator/
 │   └── tanaakk-statement-perfection-verificator.mdc
 ├── docs/
 │   ├── 10-categories-matrix.md
-│   └── verification-checklist.md
+│   └── 11-verification-checklist.md
 ├── 00_Law_of_Scale.md           # LSV 概要、PLOG、Design Auth Key
 ├── 04_Repository_Relationships.md
 ├── CHANGELOG.md
